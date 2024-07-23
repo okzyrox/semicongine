@@ -2,7 +2,7 @@ import std/strformat
 import std/strutils
 import std/os
 
-import semicongine/build
+import src/semicongine/build
 
 # TODO: totally update this file!!
 

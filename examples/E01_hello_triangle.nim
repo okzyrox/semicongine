@@ -1,8 +1,9 @@
 import std/tables
 
-import ../semicongine
+import ../src/semicongine
 
 # shader setup
+#[
 const
   shaderConfiguration = CreateShaderConfiguration(
     name = "default shader",
@@ -15,7 +16,7 @@ const
     vertexCode = "gl_Position = vec4(position, 1.0); outcolor = color;",
     fragmentCode = "color = outcolor;",
   )
-
+]#
 # scene setup
 var
   scene = Scene(name: "scene",
@@ -27,7 +28,7 @@ var
   )
   myengine = InitEngine("Hello triangle", showFps = true)
 
-myengine.InitRenderer({VERTEX_COLORED_MATERIAL: shaderConfiguration}, inFlightFrames = 2)
+myengine.InitRenderer(inFlightFrames = 2)
 myengine.LoadScene(scene)
 
 while myengine.UpdateInputs() and not KeyWasPressed(Escape):
